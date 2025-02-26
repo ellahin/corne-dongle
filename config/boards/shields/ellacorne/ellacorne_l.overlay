@@ -6,6 +6,12 @@
 
 #include "ellacorne.dtsi"
 
+chosen {
+        zephyr,display = &oled;
+        zmk,kscan = &kscan0;
+        zmk,physical-layout = &foostan_corne_6col_layout;
+    };
+
 &kscan0 {
     col-gpios
         = <&pro_micro 21 GPIO_ACTIVE_HIGH>
