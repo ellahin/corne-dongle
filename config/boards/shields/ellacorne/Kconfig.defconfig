@@ -24,3 +24,13 @@ config BT_MAX_PAIRED
     default 6
 
 endif
+
+if SHIELD_ELLACORNE_LEFT || SHIELD_ELLACORNE_RIGHT
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default N
+
+config ZMK_SPLIT
+    default y
+
+endif
