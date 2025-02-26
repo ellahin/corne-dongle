@@ -7,20 +7,21 @@
 #include "ellacorne.dtsi"
 
 &default_transform {
-    col-offset = <6>;
-};
+        col-offset = <6>;
+    };
 
 &five_column_transform {
     col-offset = <6>;
 };
 
-chosen {
-        zephyr,display = &oled;
-        zmk,kscan = &kscan0;
-        zmk,physical-layout = &foostan_corne_6col_layout;
-    };
+/ {
+    chosen {
+            zephyr,display = &oled;
+            zmk,kscan = &kscan0;
+            zmk,physical-layout = &foostan_corne_6col_layout;
+        };
 
-kscan0: kscan {
+    kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         wakeup-source;
 
@@ -51,3 +52,4 @@ kscan0: kscan {
         ;
 
     };
+};
