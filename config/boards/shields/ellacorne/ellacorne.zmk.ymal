@@ -3,7 +3,7 @@ id: ellacorne
 name: Ella Corne
 type: shield
 url: https://github.com/ellahin/corne-dongle/
-requires: []
+requires: [pro_micro]
 exposes: [i2c_oled]
 features:
   - keys
