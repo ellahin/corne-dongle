@@ -7,6 +7,12 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/pointing.h>
+#include <input/processors.dtsi>
+
+&mkp_input_listener {
+    input-processors = <&zip_temp_layer 3 2000>;
+}
 
 / {
         keymap {
@@ -26,7 +32,7 @@
                                 &kp LGUI &mo 1 &kp RET   &kp SPACE   &mo 2 &kp RALT
                         >;
                };
-               
+
                 lower_layer {
                         display-name = "Lower";
                                 // -----------------------------------------------------------------------------------------
@@ -54,6 +60,21 @@
                                 &kp LCTRL  &kp TILDE   &kp PRCNT    &kp GRAVE    &kp SLASH     &kp AT        &trans      &trans    &trans    &trans    &trans     &trans
                                 &trans     &kp DLLR    &kp AMPS     &kp HASH     &kp MINUS    &kp BACKSLASH         &trans      &trans    &trans    &trans    &trans     &trans
                                                                 &trans       &trans      &trans          &trans      &trans    &trans
+                        >;
+                };
+
+                mouse_layer {
+                        display-name = "Mouse";
+                                // -----------------------------------------------------------------------------------------
+                                // |      |     |     |     |     |     |       |     |     |     |     |     |      |
+                                // |      |     |     |     |  RC |  LC |       |     |     |     |     |     |      |
+                                // |      |     |     |     |     |     |       |     |     |     |     |     |      |
+                                //                    |     |     |     |       |     |     |     |
+                        bindings = <
+                                &trans  &trans  &trans  &trans  &trans  &trans          &trans      &trans    &trans    &trans    &trans     &trans    
+                                &trans  &trans  &trans  &mkp RCLK  &mkp LCLK  &trans          &trans      &trans    &trans    &trans    &trans     &trans
+                                &trans  &trans  &trans  &trans  &trans  &trans          &trans      &trans    &trans    &trans    &trans     &trans
+                                                        &trans  &trans  &trans          &trans      &trans    &trans
                         >;
                 };
         };
