@@ -34,13 +34,3 @@ config ZMK_SPLIT
     default y
 
 endif
-
-if SHIELD_ELLACORNE_LEFT
-
-config NICE_VIEW_WIDGET_STATUS
-    select LV_FONT_MONTSERRAT_18
-    select LV_FONT_MONTSERRAT_14
-    select LV_FONT_UNSCII_8
-    select ZMK_WPM
-
-endif
