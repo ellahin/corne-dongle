@@ -23,20 +23,20 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
 #include "peripheral_status.h"
 
-LV_IMG_DECLARE(puppycat1);
-LV_IMG_DECLARE(puppycat2);
-LV_IMG_DECLARE(puppycat3);
-LV_IMG_DECLARE(puppycat4);
-LV_IMG_DECLARE(puppycat5);
-LV_IMG_DECLARE(puppycat6);
+LV_IMG_DECLARE(PUPPYCAT1);
+LV_IMG_DECLARE(PUPPYCAT2);
+LV_IMG_DECLARE(PUPPYCAT3);
+LV_IMG_DECLARE(PUPPYCAT4);
+LV_IMG_DECLARE(PUPPYCAT5);
+LV_IMG_DECLARE(PUPPYCAT6);
 
 const lv_img_dsc_t *anim_imgs[] = {
-    &puppycat1,
-    &puppycat2,
-    &puppycat3,
-    &puppycat4,
-    &puppycat5,
-    &puppycat6,
+    &PUPPYCAT1,
+    &PUPPYCAT2,
+    &PUPPYCAT3,
+    &PUPPYCAT4,
+    &PUPPYCAT5,
+    &PUPPYCAT6,
 };
 
 static sys_slist_t widgets = SYS_SLIST_STATIC_INIT(&widgets);
