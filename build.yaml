@@ -20,9 +20,11 @@
 include:
   - board: nice_nano_v2
     shield: ellacorne_l nice_view_adapter nice_view_custom_l
+    snippet: zmk-usb-logging
   - board: nice_nano_v2 
     shield: ellacorne_r nice_view_adapter nice_view_custom_r
   - board: seeeduino_xiao_ble
+    snippet: zmk-usb-logging
     shield: ellacorne_d
   - board: nice_nano_v2
     shield: settings_reset
