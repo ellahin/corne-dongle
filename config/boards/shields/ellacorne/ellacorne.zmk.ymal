@@ -3,12 +3,13 @@ id: ellacorne
 name: Ella Corne
 type: shield
 url: https://github.com/ellahin/corne-dongle/
-requires: [pro_micro]
+requires: [pro_micro, seeeduino_xiao_ble]
 exposes: [i2c_oled]
 features:
   - keys
   - display
   - underglow
+  - pointer
   - studio
 siblings:
   - ellacorne_d
