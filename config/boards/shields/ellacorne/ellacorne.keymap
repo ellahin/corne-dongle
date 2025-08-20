@@ -21,6 +21,40 @@
 
 
 / {
+        combos {
+                        compatible = "zmk,combos";
+                        combo_esc {
+                                timeout-ms = <50>;
+                                key-positions = <2 3>;
+                                bindings = <&mkp RCLK>;
+                        };
+                };
+        behaviors {
+                ltm: layer-tap-momentary {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";
+                        tapping-term-ms = <200>;
+                        bindings = <&mo>, <&mkp>;
+                };
+                lth: layer-tap-hold-while-undecided {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "hold-preferred";
+                        hold-while-undecided;
+                        tapping-term-ms = <150>;
+                        bindings = <&mo>, <&mkp>;
+                };
+                mto: momentary-or-toggle {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "hold-preferred";
+                        hold-while-undecided;
+                        tapping-term-ms = <200>;
+                        bindings = <&mo>, <&to>;
+                };
+        };
+
         keymap {
                 compatible = "zmk,keymap";
 
@@ -32,7 +66,7 @@
                         // | LSFT:CAP |' "  | q @ | J   | K   |  X  |         |  B  |  M   |  W  |  V  |  Z  | TAB  |
                         //                        | GUI | LWR | SPC |         | ENT | RSE  | ALT |
                         //                                         trackball
-                        //                               | BTN1 | BTN2 | BTN3 | BTN4 | 
+                        //                               | BTN1 | BTN2 | BTN3 | Scrollm | 
                         //                               | BTN5 |             | BTN6 |                    
                                                 bindings = <
                         &kp TAB     &kp APOS  &kp COMMA &kp DOT &kp P &kp Y                   &kp F &kp G  &kp C     &kp R   &kp L    &kp BSPC
@@ -40,7 +74,7 @@
                         &kp LSHIFT  &kp SEMI &kp Q  &kp J  &kp K &kp X                   &kp B &kp M  &kp W     &kp V   &kp Z    &kp TAB
                                                 &kp LGUI &mo 1 &kp RET                  &kp SPACE   &mo 2 &kp RALT
                                                                 // trackball
-                                                &mkp MCLK &mkp MB4 &mkp MB5  &mkp MCLK
+                                                &mkp MCLK &mkp MB4 &mkp MB5  &mo 4
                                                 &mkp LCLK                    &mkp RCLK
                         >;
                };
@@ -96,6 +130,42 @@
                                                                 // trackball
                                                         &trans &trans &trans &trans 
                                                         &trans                &trans
+                        >;
+                };
+
+                scrollm_layer {
+                        display-name = "Scroll Momentary";
+                                // -----------------------------------------------------------------------------------------
+                                // |      |     |     |     |     |     |       |     |     |     |     |     |      |
+                                // |      |     |     |     |     |     |       |     |     |     |     |     |      |
+                                // |      |     |     |     |     |     |       |     |     |     |     |     |      |
+                                //                    |     |     |     |       |     |     |     |
+                        bindings = <
+                                &trans  &trans  &trans  &trans  &trans  &trans          &trans      &trans    &trans    &trans    &trans     &trans    
+                                &trans  &trans  &trans  &trans  &trans  &trans          &trans      &trans    &trans    &trans    &trans     &trans
+                                &trans  &trans  &trans  &trans  &trans  &trans          &trans      &trans    &trans    &trans    &trans     &trans
+                                                        &trans  &trans  &trans          &trans      &trans    &trans
+                                                                // trackball
+                                                        &trans &trans &trans &trans 
+                                                        &trans               &to 5
+                        >;
+                };
+
+                scrollh_layer {
+                        display-name = "Scroll Hold";
+                                // -----------------------------------------------------------------------------------------
+                                // |      |     |     |     |     |     |       |     |     |     |     |     |      |
+                                // |      |     |     |     |     |     |       |     |     |     |     |     |      |
+                                // |      |     |     |     |     |     |       |     |     |     |     |     |      |
+                                //                    |     |     |     |       |     |     |     |
+                        bindings = <
+                                &trans  &trans  &trans  &trans  &trans  &trans          &trans      &trans    &trans    &trans    &trans     &trans    
+                                &trans  &trans  &trans  &trans  &trans  &trans          &trans      &trans    &trans    &trans    &trans     &trans
+                                &trans  &trans  &trans  &trans  &trans  &trans          &trans      &trans    &trans    &trans    &trans     &trans
+                                                        &trans  &trans  &trans          &trans      &trans    &trans
+                                                                // trackball
+                                                        &trans  &trans &trans &trans 
+                                                        &trans                &to 0
                         >;
                 };
         };

@@ -9,11 +9,8 @@
 
 // layers
 #define DEFAULT 0
-#define SCRLM 1
-#define SCRLH 2
-#define DEVICE 3
-#define BLTH 4
-#define SNIPE 5
+#define SCRLM 4
+#define SCRLH 5
 
 &default_transform {
         row-offset = <4>;
@@ -113,10 +110,10 @@
         input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>, <&zip_xy_swap_mapper>, <&zip_xy_scaler 1 10>, <&zip_xy_to_scroll_mapper>;
         process-next;
     };
-    snipe {
-        layers = <SNIPE>;
-        input-processors = <&zip_xy_scaler 1 5>;
-        process-next;
-    };
+    //snipe {
+    //    layers = <SNIPE>;
+    //    input-processors = <&zip_xy_scaler 1 5>;
+    //    process-next;
+    //};
   };
 }; 
